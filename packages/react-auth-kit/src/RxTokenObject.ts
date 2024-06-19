@@ -6,7 +6,7 @@ import {BehaviorSubject} from 'rxjs';
 
 import {AuthError} from './errors';
 import {AuthKitStateInterface} from './types';
-const sameSite: SAME_SITE = "strict"
+const SAME_SITE = "strict"
 /**
  * Set State Data
  */
