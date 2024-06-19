@@ -6,7 +6,7 @@ import {BehaviorSubject} from 'rxjs';
 
 import {AuthError} from './errors';
 import {AuthKitStateInterface} from './types';
-
+const sameSite: SAME_SITE, = "strict"
 /**
  * Set State Data
  */
@@ -713,17 +713,20 @@ class TokenObject<T> {
         expires: expiresAt,
         domain: this.cookieDomain,
         secure: this.cookieSecure,
+        sameSite: SAME_SITE,
       });
       Cookies.set(this.authStorageTypeName, authTokenType, {
         expires: expiresAt,
         domain: this.cookieDomain,
         secure: this.cookieSecure,
+        sameSite: SAME_SITE,
       });
       if (authState) {
         Cookies.set(this.stateStorageName, JSON.stringify(authState), {
           expires: expiresAt,
           domain: this.cookieDomain,
           secure: this.cookieSecure,
+          sameSite: SAME_SITE,
         });
       }
     } else {
@@ -750,6 +753,7 @@ class TokenObject<T> {
           expires: refreshTokenExpiresAt,
           domain: this.cookieDomain,
           secure: this.cookieSecure,
+          sameSite: SAME_SITE,
         });
       }
     } else if (
@@ -778,19 +782,23 @@ class TokenObject<T> {
     Cookies.remove(this.authStorageName, {
       domain: this.cookieDomain,
       secure: this.cookieSecure,
+      sameSite: SAME_SITE,
     });
     Cookies.remove(this.authStorageTypeName, {
       domain: this.cookieDomain,
       secure: this.cookieSecure,
+      sameSite: SAME_SITE,
     });
     Cookies.remove(this.stateStorageName, {
       domain: this.cookieDomain,
       secure: this.cookieSecure,
+      sameSite: SAME_SITE,
     });
     if (this.isUsingRefreshToken && !!this.refreshTokenName) {
       Cookies.remove(this.refreshTokenName, {
         domain: this.cookieDomain,
         secure: this.cookieSecure,
+        sameSite: SAME_SITE,
       });
     }
   };
@@ -825,14 +833,17 @@ class TokenObject<T> {
     Cookies.remove(this.authStorageName, {
       domain: this.cookieDomain,
       secure: this.cookieSecure,
+      sameSite: SAME_SITE,
     });
     Cookies.remove(this.authStorageTypeName, {
       domain: this.cookieDomain,
       secure: this.cookieSecure,
+      sameSite: SAME_SITE,
     });
     Cookies.remove(this.stateStorageName, {
       domain: this.cookieDomain,
       secure: this.cookieSecure,
+      sameSite: SAME_SITE,
     });
   };
 
@@ -864,6 +875,7 @@ class TokenObject<T> {
       Cookies.remove(this.refreshTokenName, {
         domain: this.cookieDomain,
         secure: this.cookieSecure,
+        sameSite: SAME_SITE,
       });
     }
   };
